@@ -100,25 +100,37 @@ const DIRECTIONS = ["north", "east", "south", "west"];
 //     id         : actions側と対応させるための識別子
 const ROOMS = {
   north: {
-    img: "https://placehold.co/800x600?text=North",
+    img: "images/north.jpg",
     objs: [
-      { id: "door", x: 10, y: 20, w: 25, h: 60 },
+      // 押し入れ上段のふすま4枚
+      { id: "fusuma_kita_1", x: 9.2,  y: 19.8, w: 9.4, h: 10.8 },
+      { id: "fusuma_kita_2", x: 18.6, y: 19.8, w: 9.4, h: 10.8 },
+      { id: "fusuma_kita_3", x: 28.0, y: 19.8, w: 9.4, h: 10.8 },
+      { id: "fusuma_kita_4", x: 37.4, y: 19.8, w: 9.4, h: 10.8 },
     ],
   },
   east: {
-    img: "https://placehold.co/800x600?text=East",
+    img: "images/east.jpg",
     objs: [
       { id: "drawer", x: 65, y: 20, w: 25, h: 55 },
     ],
   },
   south: {
-    img: "https://placehold.co/800x600?text=South",
-    objs: [],
+    img: "images/south.jpg",
+    objs: [
+      { id: "fuji_painting", x: 34.9, y: 26.4, w: 10.4, h: 13.3 },
+      { id: "tansu",         x: 65.3, y: 40.9, w: 24.0, h: 22.8 },
+      { id: "zabuton_left",   x: 2.8,  y: 70.9, w: 20.4, h: 15.6 },
+      { id: "zabuton_center", x: 32.1, y: 76.9, w: 20.0, h: 15.6 },
+      { id: "zabuton_right",  x: 59.3, y: 70.9, w: 18.0, h: 15.6 },
+    ],
   },
   west: {
-    img: "https://placehold.co/800x600?text=West",
+    img: "images/west.jpg",
     objs: [
-      { id: "painting", x: 35, y: 15, w: 25, h: 30 },
+      { id: "fusuma_nishi", x: 34.9, y: 18.0, w: 30.0, h: 55.3 },
+      { id: "kakejiku",     x: 15.6, y: 18.6, w: 6.4,  h: 41.5 },
+      { id: "kinko",        x: 71.3, y: 57.1, w: 18.0, h: 18.6 },
     ],
   },
 };
@@ -126,23 +138,65 @@ const ROOMS = {
 // オブジェクトごとの処理(id をキーに、クリック時の動作を書く)
 // ここに1個ずつ実装を追加していけばよい形にしてある
 const ACTIONS = {
-  door: {
-    title: "ドア",
-    onExamine() {
-      showModal("ドア", "<p>ここを画像や処理に差し替える</p>");
-    },
-  },
   drawer: {
     title: "引き出し",
     onExamine() {
       showModal("引き出し", "<p>ここを画像や処理に差し替える</p>");
     },
   },
-  painting: {
-    title: "絵画",
-    onExamine() {
-      showModal("絵画", "<p>ここを画像や処理に差し替える</p>");
-    },
+
+  // ---- north: 押し入れのふすま4枚 ----
+  fusuma_kita_1: {
+    title: "ふすま(左端)",
+    onExamine() { showModal("ふすま(左端)", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  fusuma_kita_2: {
+    title: "ふすま(左)",
+    onExamine() { showModal("ふすま(左)", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  fusuma_kita_3: {
+    title: "ふすま(右)",
+    onExamine() { showModal("ふすま(右)", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  fusuma_kita_4: {
+    title: "ふすま(右端)",
+    onExamine() { showModal("ふすま(右端)", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+
+  // ---- south: 座布団3枚・富士山の絵・箪笥 ----
+  fuji_painting: {
+    title: "富士山の絵",
+    onExamine() { showModal("富士山の絵", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  tansu: {
+    title: "箪笥",
+    onExamine() { showModal("箪笥", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  zabuton_left: {
+    title: "座布団(左)",
+    onExamine() { showModal("座布団(左)", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  zabuton_center: {
+    title: "座布団(中央)",
+    onExamine() { showModal("座布団(中央)", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  zabuton_right: {
+    title: "座布団(右)",
+    onExamine() { showModal("座布団(右)", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+
+  // ---- west: ふすま・掛け軸・金庫 ----
+  fusuma_nishi: {
+    title: "ふすま",
+    onExamine() { showModal("ふすま", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  kakejiku: {
+    title: "掛け軸",
+    onExamine() { showModal("掛け軸", "<p>ここを画像や処理に差し替える</p>"); },
+  },
+  kinko: {
+    title: "金庫",
+    onExamine() { showModal("金庫", "<p>ここを画像や処理に差し替える</p>"); },
   },
 };
 
